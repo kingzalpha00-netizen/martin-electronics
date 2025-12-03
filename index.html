@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK electricals and Control Limited - Professional Electrical Services</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: #fdbb2d;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #130638;
+            color: #eceae6;
+            padding: 0.8rem 1.8rem;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #f8a90d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Welcome Section */
+        .welcome {
+            padding: 4rem 0;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .welcome h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a2a6c;
+        }
+        
+        .welcome p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Slider Section */
+        .slider-section {
+            padding: 3rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1a2a6c;
+            font-size: 2.2rem;
+        }
+        
+        .slider-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .slide img {
+            width: 100%;
+            display: block;
+        }
+        
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background-color: #1a2a6c;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            color: #1a2a6c;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 4rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+       
+  
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            color: #1a2a6c;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            display: block;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+         .button-container {
+      text-align: center;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(145deg, #6a11cb, #2575fc);
+      border: none;
+      border-radius: 50px;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(255, 255, 255, 0.3);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background: linear-gradient(145deg, #2575fc, #6a11cb);
+      transform: translateY(-5px);
+      box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2), -4px -4px 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-btn:active {
+      transform: translateY(2px);
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1), -2px -2px 5px rgba(255, 255, 255, 0.3);
+    }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a2a6c;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #fdbb2d;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            color: #ddd;
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: #fdbb2d;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: #fda32d;
+            color: #333;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                height: 300px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .welcome h2,
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+         .wave {
+           height: 30px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%231E90FF" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%231E90FF" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%231E90FF"/></svg>');
+            background-size: cover;
+            z-index: -1;
+            color: #4CAF50;
+         
+   /* Button styling */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007BFF;
+    color: rgb(37, 12, 128);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.btn:hover {
+    background-color: #0056b3;
+}
+
+    
+     
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                MK<span>electricals</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="test.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Professional Electrical & Control Solutions</h1>
+                <p>MK electronicals and Control Limited delivers high-quality electrical services for residential, commercial, and industrial clients.</p>
+                                   <p>At MK electricals and Control Limited,
+<div class="button-container">
+    <a href="contacts.html" class="contact-btn">Contact Us</a>
+  </div>
+        </div>
+    </section>
+<a href="contacts.html" class="contact-button">Contact Us</a>
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="container">
+            <h2>Welcome to MK electricals and Control Limited</h2>
+            <p>At MK electricals and Control Limited, we pride ourselves on delivering exceptional electrical services with a commitment to quality, safety, and customer satisfaction. With years of experience in the industry, our team of certified electricians is equipped to handle projects of any scale, from simple residential wiring to complex industrial control systems. We believe in building lasting relationships with our clients through transparent communication, reliable workmanship, and innovative solutions tailored to your specific needs.</p>
+            <p>Whether you're planning a new construction project, need maintenance for your existing systems, or require emergency electrical services, MK electricals and Control Limited is your trusted partner for all things electrical.</p>
+        </div>
+    </section>
+
+    <!-- Slider Section -->
+    <section class="slider-section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Our Recent Projects</h2>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide">
+                        <img src="0.1.jpg" alt="Industrial Control Panel Installation">
+                        <div class="slide-caption">Industrial Control Panel Installation</div>
+                    </div>
+                    <div class="slide">
+                        <img src="0.2.jpg" alt="Commercial Building Wiring">
+                        <div class="slide-caption">Commercial Building Wiring</div>
+                    </div>
+                    <div class="slide">
+                        <img src="0.3.jpg">
+                        <div class="slide-caption">Residential Electrical Upgrade</div>
+                    </div>
+                    <div class="slide">
+                        <img src="0.4.jpg">
+                        <div class="slide-caption">Automation System Installation</div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <div class="slider-dot active"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+            </div>
+        </div>
+    </section>
+                    <p>At<i> MK</i> electricals and Control Limited,
+<div class="button-container">
+    <a href="contacts.html" class="contact-btn">Contact Us</a>
+  </div>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="1.3.jpeg">
+                    <div class="service-content">
+                        <h3>Electrical Installations</h3>
+                        <p>Complete electrical installations for new constructions, renovations, and upgrades with adherence to all safety standards and regulations.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="1.2.jpg" alt="Control Systems">
+                    <div class="service-content">
+                        <h3>Control Systems</h3>
+                        <p>Design, installation, and maintenance of advanced control systems for industrial automation and process control applications.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://c8.alamy.com/comp/2AT0N8B/african-american-electrician-performing-wiring-in-room-2AT0N8B.jpg">
+                    <div class="service-content">
+                        <h3>Maintenance & Repairs</h3>
+                        <p>Comprehensive electrical maintenance services and emergency repairs to keep your systems running smoothly and safely.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqyXGt7wR8UYDI500VigSSzzioypYNsVhTzg-ye-qTxvEjV4Dc&s">
+                    <div class="service-content">
+                        <h3>Energy Solutions</h3>
+                        <p>Energy-efficient lighting, solar power integration, and other sustainable electrical solutions to reduce costs and environmental impact.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEE2qYEAJ9USd_2c_lUX0Cpd9vetoJBjrF_VklYl4NSKl0D7l4&s">
+                    <div class="service-content">
+                        <h3>Safety Inspections</h3>
+                        <p>Thorough electrical safety inspections and testing to ensure compliance with regulations and identify potential hazards.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz-6h8YklsMnnR2Gm5_IluHt93cMEgn8FMyq_71msTLMh8NNBc&s">
+                    <div class="service-content">
+                        <h3>Data & Communication</h3>
+                        <p>Structured cabling, network installations, and communication systems for modern residential and commercial needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<video width="640" height="360" controls>
+  <source src="vid 1.mp4" type="video/mp4">
+  <div class="button-container">
+    <a href="contact.html" class="contact-btn">Contact Us</a>
+  </div>
+</video>
+<div><a href="projects.html" class="btn">our Recent projects>>></a></div>
+
+
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About MK electricals and Control Limited</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Founded in 2005, MK electricals and Control Limited has grown from a small local electrical contractor to a respected provider of comprehensive electrical services across the region. Our journey has been marked by a steadfast commitment to excellence, continuous learning, and adapting to the evolving needs of our clients and the industry.</p>
+                    <p>What sets us apart is our team of highly skilled and certified electricians who bring both technical expertise and a customer-focused approach to every project. We invest heavily in ongoing training and the latest technology to ensure we can deliver the most advanced and efficient solutions to our clients.</p>
+                    <p>Safety is at the core of everything we do. We maintain rigorous safety standards and hold all necessary certifications and insurance to protect both our team and our clients. Our quality assurance processes ensure that every job, no matter how small, meets our high standards before we consider it complete.</p>
+                    <p>At MK electricals and Control Limited,
+  <div class="wave"><h1><i>Thank you for contacting us.</i></h1></div>
